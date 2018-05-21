@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import os
 
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
@@ -24,3 +25,11 @@ class Watermark(models.Model):
 
     def __str__(self):
         return self.name
+
+    def delete(self, using=None, keep_parents=False):
+        path = self.image.path
+        super().delete(using, keep_parents)
+        try:
+            os.remove(path)
+        except:
+            pass
