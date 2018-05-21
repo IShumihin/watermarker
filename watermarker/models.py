@@ -28,8 +28,8 @@ class Watermark(models.Model):
 
     def delete(self, using=None, keep_parents=False):
         path = self.image.path
-        super().delete(using, keep_parents)
         try:
             os.remove(path)
         except:
             pass
+        return super().delete(using, keep_parents)
