@@ -246,4 +246,4 @@ def watermark(img, mark, position=(0, 0), opacity=1, scale=1.0, tile=False,
         layer.paste(mark, position)
 
     # composite the watermark with the layer
-    return Image.composite(layer, img, layer)
+    return Image.alpha_composite(img, layer)
