@@ -26,6 +26,7 @@ setup(
         'django>=1.4',
         'django-appconf',
         'pillow',
+        'requests',
         'six',
     ],
     classifiers=[
