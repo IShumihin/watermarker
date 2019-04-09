@@ -27,9 +27,9 @@ class Watermark(models.Model):
         return self.name
 
     def delete(self, using=None, keep_parents=False):
-        path = self.image.path
+        # noinspection PyBroadException
         try:
-            os.remove(path)
-        except:
+            self.watermark.delete(save=False)
+        except Exception:
             pass
         return super().delete(using, keep_parents)
