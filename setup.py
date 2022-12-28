@@ -9,7 +9,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 from watermarker import __version__
 
 setup(
-    name='django-watermark',
+    name='watermarker',
     version=__version__,
     packages=find_packages(exclude=['example']),
     include_package_data=True,
