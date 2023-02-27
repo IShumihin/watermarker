@@ -12,12 +12,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterField(
             model_name='watermark',
-            name='id',
-            field=models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
-        ),
-        migrations.AlterField(
-            model_name='watermark',
             name='is_active',
             field=models.BooleanField(blank=True, default=True, verbose_name='is active'),
-        ),
+        )
     ]
