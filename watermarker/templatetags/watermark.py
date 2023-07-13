@@ -274,6 +274,8 @@ class Watermarker(object):
         """Create the watermarked image on the filesystem"""
         im = utils.watermark(target, mark, **kwargs)
         if isinstance(fpath, io.BytesIO):
+            if kwargs.get('result_file_format').lower() in ['jpeg', 'jpg']:
+                im = im.convert("RGB")
             im.save(fpath, format=kwargs.get('result_file_format'), quality=quality)
         else:
             im.save(fpath, quality=quality)
