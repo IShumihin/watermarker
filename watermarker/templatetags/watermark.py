@@ -157,13 +157,11 @@ class Watermarker(object):
 
         fname = self.generate_filename(mark, **params)
         self.watermark_name = fname
-        url_path = self.get_url_path(basedir, original_basename, ext, fname, obscure)
 
-        logger.debug('Watermark name: %s; URL: %s' % (
-            fname, url_path,
-        ))
+        logger.debug('Watermark name: %s' % (fname,))
 
         if self.use_default_file_storage:
+            url_path = self.get_url_path(basedir, original_basename, ext, fname, obscure)
             fpath = self._get_filesystem_path(url_path)
             # see if the image already exists on the filesystem. If it does, use it.
             if os.access(fpath, os.R_OK):
